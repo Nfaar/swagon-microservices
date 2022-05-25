@@ -12,5 +12,7 @@ namespace ReservationService.Data
         Reservation GetReservationById(int Id);
 
         void CreateReservation(Reservation reservation);
+
+        void DeleteReservationById(int Id);
     }
 }

@@ -66,3 +66,4 @@ C:\Users\Viktor Naydenov\Desktop\Fontys\Fontys\Assignments\Semester 6\Individual
 C:\Users\Viktor Naydenov\Desktop\Fontys\Fontys\Assignments\Semester 6\Individual Project\swagon-microservices\ReservationService\obj\Debug\net5.0\ref\ReservationService.dll
 C:\Users\Viktor Naydenov\Desktop\Fontys\Fontys\Assignments\Semester 6\Individual Project\swagon-microservices\ReservationService\obj\Debug\net5.0\ReservationService.pdb
 C:\Users\Viktor Naydenov\Desktop\Fontys\Fontys\Assignments\Semester 6\Individual Project\swagon-microservices\ReservationService\obj\Debug\net5.0\ReservationService.genruntimeconfig.cache
+C:\Users\Viktor Naydenov\Desktop\Fontys\Fontys\Assignments\Semester 6\Individual Project\swagon-microservices\ReservationService\bin\Debug\net5.0\appsettings.Production.json

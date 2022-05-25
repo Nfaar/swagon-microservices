@@ -29,8 +29,18 @@ namespace ReservationService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppDbContext>(opt =>
-                opt.UseInMemoryDatabase("InMem"));
+            if (env.IsProduction())
+            {
+                System.Console.WriteLine("--> Using SQLServer Db");
+                services.AddDbContext<AppDbContext>(opt =>
+                opt.UseSqlServer(Configuration.GetConnectionString("ReservationConn")));
+            }
+            else
+            {
+                System.Console.WriteLine("--> Using InMem Db");
+                services.AddDbContext<AppDbContext>(opt =>
+                    opt.UseInMemoryDatabase("InMem"));
+            }
 
             services.AddScoped<IReservationRepo, ReservationRepo>();
 
@@ -65,5 +75,7 @@ namespace ReservationService
 
             PrepDb.PrepPopulation(app, this.env.IsProduction());
         }
+
     }
+
 }

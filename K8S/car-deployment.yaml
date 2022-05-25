@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: car-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: carservice
+  template:
+    metadata:
+      labels:
+        app: carservice
+    spec:
+      containers:
+        - name: carservice
+          image: nfaarfaow/carservice:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: car-clusterip-srv
+spec:
+  type: ClusterIP
+  selector:
+    app: carservice
+  ports:
+  - name: carservice
+    protocol: TCP
+    port: 80
+    targetPort: 80

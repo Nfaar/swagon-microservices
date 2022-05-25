@@ -15,13 +15,14 @@ namespace ReservationService.Data
         }
         public void CreateReservation(Reservation reservation)
         {
-            if(reservation == null)
+            if (reservation == null)
             {
                 throw new ArgumentNullException(nameof(reservation));
             }
             else
             {
                 this.context.Reservations.Add(reservation);
+                this.context.SaveChanges();
             }
         }
 
@@ -32,7 +33,22 @@ namespace ReservationService.Data
 
         public Reservation GetReservationById(int Id)
         {
-            return this.context.Reservations.FirstOrDefault(r => r.Id == Id);
+                return this.context.Reservations.FirstOrDefault(r => r.Id == Id);
+        }
+
+        public void DeleteReservationById(int Id)
+        {
+            var reservation = this.context.Reservations.FirstOrDefault(r => r.Id == Id);
+            if (reservation != null)
+            {
+                this.context.Reservations.Remove(reservation);
+                this.context.SaveChanges();
+            }
+            else
+            {
+                throw new Exception("There is no existing reservation with that id.");
+            }
+
         }
 
         public bool SaveChanges()

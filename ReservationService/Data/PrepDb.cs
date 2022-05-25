@@ -19,7 +19,7 @@ namespace ReservationService.Data
 
 
         private static void SeedData(AppDbContext context, bool isProd)
-        {
+        {   
             if(isProd)
             {
                 Console.WriteLine("--> Attempting to apply migrations...");
